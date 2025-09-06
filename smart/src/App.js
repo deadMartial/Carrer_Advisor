@@ -75,13 +75,104 @@ const useAuth = () => {
 
 // --- START: MOCK DATA & HELPERS ---
 const COURSES = [
-    { id: "ba", title: "B.A. (Bachelor of Arts)", icon: "🎨", description: "Focuses on humanities, social sciences, and liberal arts. Ideal for those interested in writing, history, and communication.", keywords: ["writing", "history", "languages", "social sciences"], outcomes: ["Teaching", "Civil Services (IAS/PCS)", "Journalism & Media", "Content Creation", "Social Work", "Law (after LLB)"] },
-    { id: "bsc", title: "B.Sc. (Bachelor of Science)", icon: "🔬", description: "Centered on scientific principles and research. Perfect for analytical minds who enjoy labs and problem-solving.", keywords: ["math", "physics", "chemistry", "biology", "research"], outcomes: ["Scientific Research (ISRO/DRDO)", "IT & Data Analytics", "Higher Education (M.Sc./Ph.D.)", "Biotechnology", "Environmental Science"] },
-    { id: "bcom", title: "B.Com. (Bachelor of Commerce)", icon: "💼", description: "The foundation of business and finance. Suited for students good with numbers and interested in economics.", keywords: ["accounting", "business", "finance", "economics"], outcomes: ["Chartered Accountant (CA)", "Banking & Finance", "Company Secretary (CS)", "Investment Banking", "MBA Entrance"] },
-    { id: "bba", title: "BBA (Bachelor of Business Administration)", icon: "📈", description: "A management-focused degree that prepares students for leadership roles and entrepreneurial ventures.", keywords: ["management", "leadership", "marketing", "entrepreneurship"], outcomes: ["Management Trainee", "Human Resources", "Startup Founder", "Sales & Marketing", "Business Development"] },
-    { id: "btech", title: "B.Tech (Bachelor of Technology)", icon: "💻", description: "An engineering degree focused on practical application of technology. Requires strong math and science skills.", keywords: ["engineering", "technology", "coding", "machines"], outcomes: ["Software Engineer", "Core Engineering (Civil/Mech)", "Product Management", "Data Science", "PSU Jobs"] },
-    { id: "voc", title: "Vocational / Skill Courses", icon: "🛠️", description: "Short-term, hands-on courses designed to provide specific job skills for immediate employment.", keywords: ["skill", "practical", "hands-on", "short-term"], outcomes: ["Electrician/Technician", "Plumbing", "Computer Operator", "Skilled Trades", "Self-employment"] },
+  { 
+    id: "ba", 
+    title: "B.A. (Bachelor of Arts)", 
+    icon: "🎨", 
+    description: "Focuses on humanities, social sciences, and liberal arts. Ideal for those interested in writing, history, and communication.", 
+    keywords: ["writing", "history", "languages", "social sciences"], 
+    outcomes: ["Teaching", "Civil Services (IAS/PCS)", "Journalism & Media", "Content Creation", "Social Work", "Law (after LLB)"] 
+  },
+  { 
+    id: "bsc", 
+    title: "B.Sc. (Bachelor of Science)", 
+    icon: "🔬", 
+    description: "Centered on scientific principles and research. Perfect for analytical minds who enjoy labs and problem-solving.", 
+    keywords: ["math", "physics", "chemistry", "biology", "research"], 
+    outcomes: ["Scientific Research (ISRO/DRDO)", "IT & Data Analytics", "Higher Education (M.Sc./Ph.D.)", "Biotechnology", "Environmental Science"] 
+  },
+  { 
+    id: "bcom", 
+    title: "B.Com. (Bachelor of Commerce)", 
+    icon: "💼", 
+    description: "The foundation of business and finance. Suited for students good with numbers and interested in economics.", 
+    keywords: ["accounting", "business", "finance", "economics"], 
+    outcomes: ["Chartered Accountant (CA)", "Banking & Finance", "Company Secretary (CS)", "Investment Banking", "MBA Entrance"] 
+  },
+  { 
+    id: "bba", 
+    title: "BBA (Bachelor of Business Administration)", 
+    icon: "📈", 
+    description: "A management-focused degree that prepares students for leadership roles and entrepreneurial ventures.", 
+    keywords: ["management", "leadership", "marketing", "entrepreneurship"], 
+    outcomes: ["Management Trainee", "Human Resources", "Startup Founder", "Sales & Marketing", "Business Development"] 
+  },
+  { 
+    id: "btech", 
+    title: "B.Tech (Bachelor of Technology)", 
+    icon: "💻", 
+    description: "An engineering degree focused on practical application of technology. Requires strong math and science skills.", 
+    keywords: ["engineering", "technology", "coding", "machines"], 
+    outcomes: ["Software Engineer", "Core Engineering (Civil/Mech)", "Product Management", "Data Science", "PSU Jobs"] 
+  },
+  { 
+    id: "bed", 
+    title: "B.Ed (Bachelor of Education)", 
+    icon: "📚", 
+    description: "A professional degree for those who wish to become school teachers and educators.", 
+    keywords: ["teaching", "education", "training"], 
+    outcomes: ["School Teacher", "Education Counselor", "Curriculum Designer", "Educational Administrator"] 
+  },
+  { 
+    id: "llb", 
+    title: "LLB (Bachelor of Laws)", 
+    icon: "⚖️", 
+    description: "Undergraduate law degree that opens careers in legal practice, judiciary, and corporate law.", 
+    keywords: ["law", "justice", "legal", "advocacy"], 
+    outcomes: ["Lawyer/Advocate", "Corporate Legal Advisor", "Judiciary (Judge)", "Civil Services (Law specialization)"] 
+  },
+  { 
+    id: "bscn", 
+    title: "B.Sc. Nursing", 
+    icon: "🩺", 
+    description: "Healthcare-oriented degree preparing students for nursing and hospital services.", 
+    keywords: ["nursing", "healthcare", "medicine"], 
+    outcomes: ["Registered Nurse", "Public Health Worker", "Military Nursing", "Hospital Administration"] 
+  },
+  { 
+    id: "bpharm", 
+    title: "B.Pharm (Bachelor of Pharmacy)", 
+    icon: "💊", 
+    description: "Pharmacy degree focused on medicines, drugs, and healthcare industry roles.", 
+    keywords: ["pharmacy", "medicine", "chemistry", "healthcare"], 
+    outcomes: ["Pharmacist", "Drug Inspector", "Pharmaceutical Industry Jobs", "Research & Development"] 
+  },
+  { 
+    id: "agri", 
+    title: "B.Sc. Agriculture", 
+    icon: "🌱", 
+    description: "Applied science degree focusing on agriculture, farming, and rural development.", 
+    keywords: ["agriculture", "farming", "soil", "environment"], 
+    outcomes: ["Agricultural Officer", "Farm Manager", "Agri-Business", "Research Scientist"] 
+  },
+  { 
+    id: "bfa", 
+    title: "BFA (Bachelor of Fine Arts)", 
+    icon: "🎭", 
+    description: "Creative arts degree covering painting, sculpture, music, theatre, and dance.", 
+    keywords: ["art", "creativity", "music", "painting", "theatre"], 
+    outcomes: ["Artist", "Performer", "Graphic Designer", "Art Teacher", "Film & Media Professional"] 
+  },
+  { 
+    id: "voc", 
+    title: "Vocational / Skill Courses", 
+    icon: "🛠️", 
+    description: "Short-term, hands-on courses designed to provide specific job skills for immediate employment.", 
+    keywords: ["skill", "practical", "hands-on", "short-term"], 
+    outcomes: ["Electrician/Technician", "Plumbing", "Computer Operator", "Skilled Trades", "Self-employment"] 
+  }
 ];
+
 
 const MOCK_COLLEGES = [
     { id: 1, name: "Govt. Degree College, Northville", lat: 28.7041, lng: 77.1025, programs: ["B.A.", "B.Sc.", "B.Com."], facilities: ["Library", "Labs", "Hostel", "NSS"], cutoffs: { ba: "45%", bsc: "50%", bcom: "48%" }, image: "https://placehold.co/600x400/a7c5fd/FFF?text=Northville+College" },

@@ -14,7 +14,7 @@ export default function Hero() {
 
           <div className="mt-6 flex gap-3">
             <Link to="/quiz" className="bg-white text-indigo-600 px-5 py-2 rounded-md font-medium shadow">
-              Start Quiz
+              Start Qu fsdfsfiz
             </Link>
             <Link to="/colleges" className="border border-white/60 px-5 py-2 rounded-md font-medium">
               Find Colleges
