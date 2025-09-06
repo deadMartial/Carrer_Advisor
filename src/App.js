@@ -74,6 +74,7 @@ const useAuth = () => {
 
 
 // --- START: MOCK DATA & HELPERS ---
+
 const COURSES = [
   { 
     id: "ba", 
@@ -81,7 +82,11 @@ const COURSES = [
     icon: "🎨", 
     description: "Focuses on humanities, social sciences, and liberal arts. Ideal for those interested in writing, history, and communication.", 
     keywords: ["writing", "history", "languages", "social sciences"], 
-    outcomes: ["Teaching", "Civil Services (IAS/PCS)", "Journalism & Media", "Content Creation", "Social Work", "Law (after LLB)"] 
+    outcomes: ["Teaching", "Civil Services (IAS/PCS)", "Journalism & Media", "Content Creation", "Social Work", "Law (after LLB)"],
+    category: "Arts",
+    duration: "3 years",
+    eligibility: "Class 12 (any stream)",
+    higherStudies: ["M.A.", "Ph.D.", "NET/JRF"]
   },
   { 
     id: "bsc", 
@@ -89,7 +94,11 @@ const COURSES = [
     icon: "🔬", 
     description: "Centered on scientific principles and research. Perfect for analytical minds who enjoy labs and problem-solving.", 
     keywords: ["math", "physics", "chemistry", "biology", "research"], 
-    outcomes: ["Scientific Research (ISRO/DRDO)", "IT & Data Analytics", "Higher Education (M.Sc./Ph.D.)", "Biotechnology", "Environmental Science"] 
+    outcomes: ["Scientific Research (ISRO/DRDO)", "IT & Data Analytics", "Higher Education (M.Sc./Ph.D.)", "Biotechnology", "Environmental Science"],
+    category: "Science",
+    duration: "3 years",
+    eligibility: "Class 12 (Science stream)",
+    higherStudies: ["M.Sc.", "Ph.D.", "Research Fellowships"]
   },
   { 
     id: "bcom", 
@@ -97,7 +106,11 @@ const COURSES = [
     icon: "💼", 
     description: "The foundation of business and finance. Suited for students good with numbers and interested in economics.", 
     keywords: ["accounting", "business", "finance", "economics"], 
-    outcomes: ["Chartered Accountant (CA)", "Banking & Finance", "Company Secretary (CS)", "Investment Banking", "MBA Entrance"] 
+    outcomes: ["Chartered Accountant (CA)", "Banking & Finance", "Company Secretary (CS)", "Investment Banking", "MBA Entrance"],
+    category: "Commerce",
+    duration: "3 years",
+    eligibility: "Class 12 (Commerce or any stream with Math)",
+    higherStudies: ["M.Com.", "MBA", "CA", "CS", "CFA"]
   },
   { 
     id: "bba", 
@@ -105,7 +118,11 @@ const COURSES = [
     icon: "📈", 
     description: "A management-focused degree that prepares students for leadership roles and entrepreneurial ventures.", 
     keywords: ["management", "leadership", "marketing", "entrepreneurship"], 
-    outcomes: ["Management Trainee", "Human Resources", "Startup Founder", "Sales & Marketing", "Business Development"] 
+    outcomes: ["Management Trainee", "Human Resources", "Startup Founder", "Sales & Marketing", "Business Development"],
+    category: "Professional",
+    duration: "3 years",
+    eligibility: "Class 12 (any stream, preferably with Math/Commerce)",
+    higherStudies: ["MBA", "PGDM", "MMS"]
   },
   { 
     id: "btech", 
@@ -113,7 +130,11 @@ const COURSES = [
     icon: "💻", 
     description: "An engineering degree focused on practical application of technology. Requires strong math and science skills.", 
     keywords: ["engineering", "technology", "coding", "machines"], 
-    outcomes: ["Software Engineer", "Core Engineering (Civil/Mech)", "Product Management", "Data Science", "PSU Jobs"] 
+    outcomes: ["Software Engineer", "Core Engineering (Civil/Mech)", "Product Management", "Data Science", "PSU Jobs"],
+    category: "Professional",
+    duration: "4 years",
+    eligibility: "Class 12 (Science stream with PCM), entrance exams (JEE/State CET)",
+    higherStudies: ["M.Tech", "MBA", "MS (Abroad)"]
   },
   { 
     id: "bed", 
@@ -121,7 +142,11 @@ const COURSES = [
     icon: "📚", 
     description: "A professional degree for those who wish to become school teachers and educators.", 
     keywords: ["teaching", "education", "training"], 
-    outcomes: ["School Teacher", "Education Counselor", "Curriculum Designer", "Educational Administrator"] 
+    outcomes: ["School Teacher", "Education Counselor", "Curriculum Designer", "Educational Administrator"],
+    category: "Professional",
+    duration: "2 years (after UG)",
+    eligibility: "Graduation in any stream",
+    higherStudies: ["M.Ed.", "M.A. (Education)", "Ph.D. (Education)"]
   },
   { 
     id: "llb", 
@@ -129,7 +154,11 @@ const COURSES = [
     icon: "⚖️", 
     description: "Undergraduate law degree that opens careers in legal practice, judiciary, and corporate law.", 
     keywords: ["law", "justice", "legal", "advocacy"], 
-    outcomes: ["Lawyer/Advocate", "Corporate Legal Advisor", "Judiciary (Judge)", "Civil Services (Law specialization)"] 
+    outcomes: ["Lawyer/Advocate", "Corporate Legal Advisor", "Judiciary (Judge)", "Civil Services (Law specialization)"],
+    category: "Professional",
+    duration: "3 years (after graduation) or 5 years (integrated after Class 12)",
+    eligibility: "Class 12 (for integrated 5-year) or Graduation (for 3-year LLB)",
+    higherStudies: ["LL.M.", "Judicial Services Exam", "Ph.D. (Law)"]
   },
   { 
     id: "bscn", 
@@ -137,7 +166,11 @@ const COURSES = [
     icon: "🩺", 
     description: "Healthcare-oriented degree preparing students for nursing and hospital services.", 
     keywords: ["nursing", "healthcare", "medicine"], 
-    outcomes: ["Registered Nurse", "Public Health Worker", "Military Nursing", "Hospital Administration"] 
+    outcomes: ["Registered Nurse", "Public Health Worker", "Military Nursing", "Hospital Administration"],
+    category: "Science",
+    duration: "4 years",
+    eligibility: "Class 12 (Science with Biology)",
+    higherStudies: ["M.Sc. Nursing", "Ph.D. Nursing", "Hospital Administration"]
   },
   { 
     id: "bpharm", 
@@ -145,7 +178,11 @@ const COURSES = [
     icon: "💊", 
     description: "Pharmacy degree focused on medicines, drugs, and healthcare industry roles.", 
     keywords: ["pharmacy", "medicine", "chemistry", "healthcare"], 
-    outcomes: ["Pharmacist", "Drug Inspector", "Pharmaceutical Industry Jobs", "Research & Development"] 
+    outcomes: ["Pharmacist", "Drug Inspector", "Pharmaceutical Industry Jobs", "Research & Development"],
+    category: "Science",
+    duration: "4 years",
+    eligibility: "Class 12 (Science with PCM/PCB)",
+    higherStudies: ["M.Pharm", "Pharm.D.", "Ph.D."]
   },
   { 
     id: "agri", 
@@ -153,7 +190,11 @@ const COURSES = [
     icon: "🌱", 
     description: "Applied science degree focusing on agriculture, farming, and rural development.", 
     keywords: ["agriculture", "farming", "soil", "environment"], 
-    outcomes: ["Agricultural Officer", "Farm Manager", "Agri-Business", "Research Scientist"] 
+    outcomes: ["Agricultural Officer", "Farm Manager", "Agri-Business", "Research Scientist"],
+    category: "Science",
+    duration: "4 years",
+    eligibility: "Class 12 (Science with PCB/PCM/Agri subjects)",
+    higherStudies: ["M.Sc. Agriculture", "Ph.D.", "Agri-Business Management"]
   },
   { 
     id: "bfa", 
@@ -161,7 +202,11 @@ const COURSES = [
     icon: "🎭", 
     description: "Creative arts degree covering painting, sculpture, music, theatre, and dance.", 
     keywords: ["art", "creativity", "music", "painting", "theatre"], 
-    outcomes: ["Artist", "Performer", "Graphic Designer", "Art Teacher", "Film & Media Professional"] 
+    outcomes: ["Artist", "Performer", "Graphic Designer", "Art Teacher", "Film & Media Professional"],
+    category: "Arts",
+    duration: "3–4 years",
+    eligibility: "Class 12 (any stream, portfolio may be required)",
+    higherStudies: ["MFA", "Ph.D. Fine Arts", "Specialized Art Diplomas"]
   },
   { 
     id: "voc", 
@@ -169,9 +214,14 @@ const COURSES = [
     icon: "🛠️", 
     description: "Short-term, hands-on courses designed to provide specific job skills for immediate employment.", 
     keywords: ["skill", "practical", "hands-on", "short-term"], 
-    outcomes: ["Electrician/Technician", "Plumbing", "Computer Operator", "Skilled Trades", "Self-employment"] 
+    outcomes: ["Electrician/Technician", "Plumbing", "Computer Operator", "Skilled Trades", "Self-employment"],
+    category: "Vocational",
+    duration: "6 months – 2 years",
+    eligibility: "Class 10 or 12 (depending on course)",
+    higherStudies: ["Diploma", "Advanced Skill Certifications"]
   }
 ];
+
 
 
 const MOCK_COLLEGES = [
@@ -471,35 +521,99 @@ function Courses() {
   );
 }
 
+
 function CourseDetail() {
-    const { courseId } = useParams();
-    const course = COURSES.find(c => c.id === courseId);
-    if (!course) return <Navigate to="/courses" />;
-    
-    return (
-        <div className="p-4 md:p-6 bg-white rounded-lg shadow-lg max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-4">
-                <span className="text-5xl">{course.icon}</span>
-                <h1 className="text-3xl font-bold">{course.title}</h1>
-            </div>
-            <p className="text-gray-600 mb-6">{course.description}</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <h3 className="text-lg font-semibold mb-2 text-indigo-700">Keywords</h3>
-                    <div className="flex flex-wrap gap-2">
-                        {course.keywords.map(k => <span key={k} className="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">{k}</span>)}
-                    </div>
-                </div>
-                <div>
-                    <h3 className="text-lg font-semibold mb-2 text-green-700">Possible Career Outcomes</h3>
-                    <ul className="list-disc list-inside text-gray-700 space-y-1">
-                        {course.outcomes.map(o => <li key={o}>{o}</li>)}
-                    </ul>
-                </div>
-            </div>
+  const { courseId } = useParams();
+  const course = COURSES.find(c => c.id === courseId);
+
+  if (!course) return <Navigate to="/courses" />;
+
+  return (
+    <div className="p-4 md:p-6 bg-white rounded-lg shadow-lg max-w-4xl mx-auto">
+      
+      {/* Header */}
+      <div className="flex items-center gap-4 mb-4">
+        <span className="text-5xl">{course.icon}</span>
+        <h1 className="text-3xl font-bold">{course.title}</h1>
+      </div>
+      
+      {/* Description */}
+      <p className="text-gray-600 mb-6 leading-relaxed">
+        {course.description}
+      </p>
+
+      {/* Extra Fields */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <h3 className="text-lg font-semibold text-purple-700">Category</h3>
+          <p className="text-gray-700">{course.category}</p>
         </div>
-    )
+        <div>
+          <h3 className="text-lg font-semibold text-purple-700">Duration</h3>
+          <p className="text-gray-700">{course.duration}</p>
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold text-purple-700">Eligibility</h3>
+          <p className="text-gray-700">{course.eligibility}</p>
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold text-purple-700">Higher Studies</h3>
+          {course.higherStudies?.length > 0 ? (
+            <ul className="list-disc list-inside text-gray-700 space-y-1">
+              {course.higherStudies.map(h => <li key={h}>{h}</li>)}
+            </ul>
+          ) : (
+            <p className="text-gray-500 text-sm">No higher studies listed</p>
+          )}
+        </div>
+      </div>
+
+      {/* Keywords & Outcomes */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 className="text-lg font-semibold mb-2 text-indigo-700">Keywords</h3>
+          {course.keywords.length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {course.keywords.map(k => (
+                <span
+                  key={k}
+                  className="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full"
+                >
+                  {k}
+                </span>
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-500 text-sm">No keywords available</p>
+          )}
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold mb-2 text-green-700">Possible Career Outcomes</h3>
+          {course.outcomes.length > 0 ? (
+            <ul className="list-disc list-inside text-gray-700 space-y-1">
+              {course.outcomes.map(o => <li key={o}>{o}</li>)}
+            </ul>
+          ) : (
+            <p className="text-gray-500 text-sm">No outcomes available</p>
+          )}
+        </div>
+      </div>
+
+      {/* Back Button */}
+      <div className="mt-6">
+        <Link 
+          to="/courses" 
+          className="inline-block text-indigo-600 hover:underline"
+        >
+          ← Back to Courses
+        </Link>
+      </div>
+    </div>
+  );
 }
+
+
 
 function Colleges() {
   // This is a placeholder for the interactive map. In a real scenario, you'd use a library like React Leaflet.
